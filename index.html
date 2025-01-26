@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achievements Showcase</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Authentication Section -->
+    <div id="auth-section" class="auth-container">
+        <h2>Login or Register</h2>
+        <div id="login-form" class="form-container">
+            <input type="text" id="username" placeholder="Username" class="input-field" required>
+            <input type="password" id="password" placeholder="Password" class="input-field" required>
+            <button id="login-button" class="submit-btn">Login</button>
+            <p>Don't have an account? <a href="#" id="show-register-form">Register</a></p>
+        </div>
+        <div id="register-form" class="form-container" style="display: none;">
+            <input type="text" id="new-username" placeholder="Username" class="input-field" required>
+            <input type="password" id="new-password" placeholder="Password" class="input-field" required>
+            <button id="register-button" class="submit-btn">Register</button>
+            <p>Already have an account? <a href="#" id="show-login-form">Login</a></p>
+        </div>
+    </div>
+
+    <!-- Achievement Section -->
+    <div id="achievement-section" class="achievement-container" style="display: none;">
+        <h2>Your Achievements</h2>
+
+        <!-- Achievement List (Displaying Achievements) -->
+        <div id="achievement-list" class="achievement-list"></div>
+
+        <!-- Form for Adding Achievement (Fixed Section) -->
+        <div id="achievement-form" class="achievement-form">
+            <h3>Add Achievement</h3>
+            <input type="text" id="title" placeholder="Achievement Title" class="input-field" required>
+            <textarea id="description" placeholder="Description" class="input-field" required></textarea>
+            <input type="file" id="file" class="file-input">
+            <button type="submit" id="add-achievement" class="submit-btn">Add Achievement</button>
+        </div>
+
+        <button id="logout-button" class="submit-btn logout-btn">Logout</button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Created by <a href="https://www.linkedin.com/in/sainath666" target="_blank">Sainath Reddy</a></p>
+        <p><a href="https://github.com/sainath-666" target="_blank">GitHub</a> | <a href="https://www.linkedin.com/in/sainath666" target="_blank">LinkedIn</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
