@@ -8,7 +8,7 @@ A responsive web application that allows users to create an account, log in, and
 
 ## Live Demo
 
-[View Live Demo](https://achievement-adder-sainath.netlify.app/)
+[View Live Demo](https://sainath-666.github.io/Achivement_Adder_1/)
 
 ## Features
 
