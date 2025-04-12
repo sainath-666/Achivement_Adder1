@@ -113,6 +113,29 @@ document.getElementById("logout-button").addEventListener("click", function () {
 });
 
 // Handle Achievement Form Submission
+// Image preview functionality
+document.getElementById("file").addEventListener("change", function() {
+    const file = this.files[0];
+    const imagePreview = document.getElementById("image-preview");
+    
+    if (file) {
+        const reader = new FileReader();
+        
+        reader.onload = function(event) {
+            imagePreview.innerHTML = `<img src="${event.target.result}" alt="Image Preview">`;
+            imagePreview.style.display = "block";
+            
+            // Add animation effect
+            imagePreview.style.animation = "fadeIn 0.5s ease-in-out";
+        };
+        
+        reader.readAsDataURL(file);
+    } else {
+        imagePreview.innerHTML = "";
+        imagePreview.style.display = "none";
+    }
+});
+
 // Handle Achievement Form Submission with improved file handling
 document.getElementById("add-achievement").addEventListener("click", function () {
     const title = document.getElementById("title").value;
@@ -172,6 +195,11 @@ function saveAchievement(achievement) {
     document.getElementById("title").value = "";
     document.getElementById("description").value = "";
     document.getElementById("file").value = "";
+    
+    // Clear image preview
+    const imagePreview = document.getElementById("image-preview");
+    imagePreview.innerHTML = "";
+    imagePreview.style.display = "none";
 
     // Show success message
     const successMessage = document.createElement("div");
@@ -183,6 +211,9 @@ function saveAchievement(achievement) {
     setTimeout(() => {
         successMessage.remove();
     }, 3000);
+
+    // Scroll to achievement list to show the newly added achievement
+    document.querySelector(".achievement-list").scrollIntoView({ behavior: 'smooth' });
 
     loadAchievements(); // Reload the achievements after adding
 }
@@ -255,6 +286,16 @@ function editAchievement(index) {
     document.getElementById("title").value = achievement.title;
     document.getElementById("description").value = achievement.description;
     
+    // Show image preview if available
+    const imagePreview = document.getElementById("image-preview");
+    if (achievement.file) {
+        imagePreview.innerHTML = `<img src="${achievement.file}" alt="Image Preview">`;
+        imagePreview.style.display = "block";
+    } else {
+        imagePreview.innerHTML = "";
+        imagePreview.style.display = "none";
+    }
+    
     // Change button text to indicate editing mode
     const addButton = document.getElementById("add-achievement");
     const originalButtonText = addButton.innerHTML;
@@ -271,6 +312,8 @@ function editAchievement(index) {
         document.getElementById("title").value = "";
         document.getElementById("description").value = "";
         document.getElementById("file").value = "";
+        imagePreview.innerHTML = "";
+        imagePreview.style.display = "none";
         addButton.innerHTML = originalButtonText;
         cancelButton.remove();
         isEditing = false;
@@ -314,6 +357,8 @@ function editAchievement(index) {
             document.getElementById("title").value = "";
             document.getElementById("description").value = "";
             document.getElementById("file").value = "";
+            imagePreview.innerHTML = "";
+            imagePreview.style.display = "none";
             addButton.innerHTML = originalButtonText;
             addButton.onclick = originalClickHandler;
             cancelButton.remove();
@@ -328,6 +373,9 @@ function editAchievement(index) {
             setTimeout(() => {
                 successMessage.remove();
             }, 3000);
+            
+            // Scroll to achievement list to show the updated achievement
+            document.querySelector(".achievement-list").scrollIntoView({ behavior: 'smooth' });
             
             loadAchievements();
             isEditing = false;

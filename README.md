@@ -4,7 +4,7 @@ A responsive web application that allows users to create an account, log in, and
 
 ## Preview
 
-![Achievement Adder Preview](https://i.ibb.co/YBHnXWz/achievement-adder-preview.png)
+![Achievement Adder Preview](Preview.png)
 
 ## Live Demo
 

@@ -47,13 +47,36 @@
 
         <!-- Form for Adding Achievement -->
         <div id="achievement-form" class="achievement-form">
-            <h3>Add Achievement</h3>
-            <input type="text" id="title" placeholder="Achievement Title" class="input-field" required>
-            <textarea id="description" placeholder="Description" class="input-field" required></textarea>
-            <div class="file-container">
-                <label for="file" class="file-label"><i class="fas fa-upload"></i> Upload Image</label>
-                <input type="file" id="file" class="file-input" accept="image/*">
+            <div class="form-header">
+                <h3><i class="fas fa-trophy"></i> Add Achievement</h3>
+                <p class="form-subtitle">Share your accomplishments with the world</p>
             </div>
+            
+            <div class="form-group">
+                <div class="input-group">
+                    <i class="fas fa-award input-icon"></i>
+                    <input type="text" id="title" placeholder="Achievement Title" class="input-field" required>
+                </div>
+                <small class="field-hint">Give your achievement a meaningful title</small>
+            </div>
+            
+            <div class="form-group">
+                <div class="input-group">
+                    <i class="fas fa-comment-alt input-icon"></i>
+                    <textarea id="description" placeholder="Describe your achievement..." class="input-field" required></textarea>
+                </div>
+                <small class="field-hint">Tell us about your achievement and why it matters</small>
+            </div>
+            
+            <div class="form-group">
+                <div class="file-container">
+                    <label for="file" class="file-label"><i class="fas fa-image"></i> Upload Image</label>
+                    <input type="file" id="file" class="file-input" accept="image/*">
+                </div>
+                <small class="field-hint">Add a photo to showcase your achievement (optional)</small>
+                <div id="image-preview" class="image-preview"></div>
+            </div>
+            
             <button type="submit" id="add-achievement" class="submit-btn"><i class="fas fa-plus"></i> Add Achievement</button>
         </div>
 
